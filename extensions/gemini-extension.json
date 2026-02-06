@@ -1,0 +1,6 @@
+{
+  "id": "scaffolder-atomic",
+  "name": "Atomic Agents Scaffolder",
+  "description": "Tools to bootstrap projects from the 00_core template.",
+  "version": "1.0.0"
+}

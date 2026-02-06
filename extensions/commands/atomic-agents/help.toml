@@ -1,0 +1,12 @@
+[command]
+name = "help"
+description = "Explains the project structure and best practices."
+
+[content]
+intro = "This template provides a robust foundation for Agentic Engineering."
+features = [
+  "Standardized .gemini context folder",
+  "Pre-configured best practice documents",
+  "Atomic Agent workflows"
+]
+resources = "Please read the diagrams in .gemini/: PIVLoopDiagram.png and Top1%AgenticEngineering.png for architectural guidance."
