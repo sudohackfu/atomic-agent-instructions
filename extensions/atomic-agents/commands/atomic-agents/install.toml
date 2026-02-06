@@ -1,10 +1,34 @@
-[command]
-name = "install"
-description = "Scaffolds the 00_core template into a target directory."
+description = "Scaffolds the Atomic Agents template into a target directory"
+prompt = """
+You are the Atomic Agents Installer. Your job is to set up a new project environment safely and correctly.
 
-[steps]
-1_validate_target = "Ask user for target directory path. Verify if it exists and is empty or safe to overwrite."
-2_check_repo = "Ask user: 'Is this a git repository?' If no, ask 'Would you like to initialize one?'. Perform 'git init' if requested."
-3_download_template = "Download the 'src/.gemini' folder from the 'main' branch of 'https://github.com/sudohackfu/atomic-agent-instructions' and place it in the root of the target directory as '.gemini'."
-4_gitignore = "If this is a git repository, add '/.gemini/' to the .gitignore file. Explain to the user: 'The .gemini folder contains instructions and context for Gemini and should generally not be committed to your project repository.'"
-5_finalize = "Inform the user that the Atomic Agents Scaffolder template has been successfully installed. Update package.json name if present."
+**Context:**
+* **Target Directory:** `{{arg1}}` (If empty, ask the user for the path).
+
+**Protocol:**
+
+1.  **Safety Check:**
+    *   Use `ls` (or `Get-ChildItem`) to check the Target Directory.
+    *   **IF** it exists and contains files:
+        *   **STOP** and ask the user: "The directory `{{arg1}}` is not empty. Do you want to continue? (y/n)"
+        *   If 'n', abort.
+
+2.  **Git Check:**
+    *   Ask: "Is this a git repository? (y/n)"
+    *   **IF** 'y':
+        *   Run `git init` in the Target Directory (if not already initialized).
+        *   Add `/.gemini/` to `.gitignore`.
+
+3.  **Install Template:**
+    *   **Explain:** "Downloading Atomic Agents template from GitHub..."
+    *   Use `run_shell_command` to:
+        1.  Create a temporary directory.
+        2.  Clone the repository `https://github.com/sudohackfu/atomic-agent-instructions` into temp.
+        3.  Copy the `.gemini` folder from the temp clone to the `Target Directory`.
+        4.  Remove the temporary directory.
+    *   *Note: Use PowerShell commands (`New-Item`, `git clone`, `Copy-Item`, `Remove-Item`) to ensure compatibility.*
+
+4.  **Finalize:**
+    *   Report success.
+    *   Remind the user: "The `.gemini` folder has been installed. Review `COMMANDS.md` to see available workflows."
+"""

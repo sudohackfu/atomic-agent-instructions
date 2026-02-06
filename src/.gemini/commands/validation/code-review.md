@@ -81,9 +81,9 @@ For each changed file or new file, analyze for:
 
 ## Output Format
 
-Create the `.agents/code-reviews` directory if it does not exist.
+Create the `.gemini/code-reviews` directory if it does not exist.
 
-Save a new file to `.agents/code-reviews/[appropriate-name].md`
+Save a new file to `.gemini/code-reviews/[appropriate-name].md`
 
 **Stats:**
 

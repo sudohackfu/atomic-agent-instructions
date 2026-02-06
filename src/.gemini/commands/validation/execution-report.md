@@ -17,9 +17,9 @@ You have just finished implementing a feature. Before moving on, reflect on:
 
 ## Generate Report
 
-Create the `.agents/execution-reports` directory if it does not exist.
+Create the `.gemini/execution-reports` directory if it does not exist.
 
-Save to: `.agents/execution-reports/[feature-name].md`
+Save to: `.gemini/execution-reports/[feature-name].md`
 
 ### Meta Information
 

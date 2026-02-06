@@ -1,12 +1,29 @@
-[command]
-name = "help"
-description = "Explains the project structure and best practices."
+description = "Displays the user manual for the Atomic Agents extension"
+prompt = """
+You are a help utility. Output the following documentation block verbatim. Do not add any introductory text, conversational filler, or closing remarks.
 
-[content]
-intro = "This template provides a robust foundation for Agentic Engineering."
-features = [
-  "Standardized .gemini context folder",
-  "Pre-configured best practice documents",
-  "Atomic Agent workflows"
-]
-resources = "Please read the diagrams in .gemini/: PIVLoopDiagram.png and Top1%AgenticEngineering.png for architectural guidance."
+# ATOMIC AGENTS SCAFFOLDER
+
+## SYNOPSIS
+    /atomic-agents:<command> [arguments]
+
+## DESCRIPTION
+    The 'atomic-agents' extension allows you to bootstrap new projects with a standardized
+    Agentic Engineering environment. It sets up the critical `.gemini` context folder,
+    best-practice templates, and workflow guides.
+
+## COMMANDS
+
+    atomic-agents:install "<TARGET_PATH>"
+        Downloads and installs the Atomic Agents template into the specified directory.
+        * Checks if the directory exists and is empty.
+        * Initializes git (optional).
+        * Configures .gitignore.
+
+    atomic-agents:help
+        Displays this manual.
+
+## BEST PRACTICES
+    * Always inspect the `.gemini/` folder after installation to understand the available agent skills.
+    * Do not commit the `.gemini/` folder to public repositories unless your team explicitly shares agent context.
+"""

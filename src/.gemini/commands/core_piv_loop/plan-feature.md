@@ -62,7 +62,7 @@ So that <benefit/value>
 
 - Catalog external libraries relevant to feature
 - Understand how libraries are integrated (check imports, configs)
-- Find relevant documentation in docs/, ai_docs/, .agents/reference or ai-wiki if available
+- Find relevant documentation in .gemini/reference or ai-wiki if available
 - Note library versions and compatibility requirements
 
 **4. Testing Patterns**
@@ -374,14 +374,14 @@ Execute every command to ensure zero regressions and 100% feature correctness.
 
 ## Output Format
 
-**Directory**: Create `.agents/plans/` if it doesn't exist
+**Directory**: Create `.gemini/plans/` if it doesn't exist
 
-**Filename**: `.agents/plans/{kebab-case-descriptive-name}.md`
+**Filename**: `.gemini/plans/{kebab-case-descriptive-name}.md`
 
 - Replace `{kebab-case-descriptive-name}` with short, descriptive feature name
 - Examples: `add-user-authentication.md`, `implement-search-api.md`, `refactor-database-layer.md`
 
-**Directory**: Create `.agents/plans/` if it doesn't exist
+**Directory**: Create `.gemini/plans/` if it doesn't exist
 
 ## Quality Criteria
 

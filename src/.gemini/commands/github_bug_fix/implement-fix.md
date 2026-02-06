@@ -10,12 +10,12 @@ allowed-tools: Read, Write, Edit, Bash(ruff:*), Bash(mypy:*), Bash(pytest:*), Ba
 
 **This command implements fixes for GitHub issues based on RCA documents:**
 - Working in a local Git repository with GitHub origin
-- RCA document exists at `docs/rca/issue-$ARGUMENTS.md`
+- RCA document exists at `.gemini/rca/issue-$ARGUMENTS.md`
 - GitHub CLI installed and authenticated (optional, for status updates)
 
 ## RCA Document to Reference
 
-Read RCA: `docs/rca/issue-$ARGUMENTS.md`
+Read RCA: `.gemini/rca/issue-$ARGUMENTS.md`
 
 **Optional - View GitHub issue for context:**
 ```powershell

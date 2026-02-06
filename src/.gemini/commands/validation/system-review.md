@@ -101,9 +101,9 @@ Based on patterns across divergences, suggest:
 
 ## Output Format
 
-Create the `.agents/system-reviews` directory if it does not exist.
+Create the `.gemini/system-reviews` directory if it does not exist.
 
-Save your analysis to: `.agents/system-reviews/[feature-name]-review.md`
+Save your analysis to: `.gemini/system-reviews/[feature-name]-review.md`
 
 ### Report Structure:
 

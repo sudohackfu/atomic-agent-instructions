@@ -91,9 +91,9 @@ Look for:
 
 ## Output: Create RCA Document
 
-Create the `docs/rca` directory if it does not exist.
+Create the `.gemini/rca` directory if it does not exist.
 
-Save analysis as: `docs/rca/issue-$ARGUMENTS.md`
+Save analysis as: `.gemini/rca/issue-$ARGUMENTS.md`
 
 ### Required RCA Document Structure
 
