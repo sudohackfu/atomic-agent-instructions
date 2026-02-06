@@ -1,17 +1,20 @@
 $ExtensionName = "atomic-agents"
-$SourcePath = $PSScriptRoot
+$SourcePath = Join-Path $PSScriptRoot "extensions"
 $GlobalExtensionsDir = "$HOME\.gemini\extensions"
 $TargetDir = "$GlobalExtensionsDir\$ExtensionName"
 
+if (-not (Test-Path -Path $SourcePath)) {
+    Write-Error "Extensions directory not found at $SourcePath"
+    exit 1
+}
+
 Write-Host "Installing '$ExtensionName' extension..." -ForegroundColor Cyan
 
-# 1. Create Global Extensions Directory if not exists
 if (-not (Test-Path -Path $GlobalExtensionsDir)) {
     New-Item -ItemType Directory -Force -Path $GlobalExtensionsDir | Out-Null
     Write-Host "Created global extensions directory: $GlobalExtensionsDir"
 }
 
-# 2. Remove existing installation if present
 if (Test-Path -Path $TargetDir) {
     Write-Warning "Extension '$ExtensionName' already exists at $TargetDir."
     $confirm = Read-Host "Overwrite? (y/n)"
@@ -22,14 +25,15 @@ if (Test-Path -Path $TargetDir) {
     Remove-Item -Path $TargetDir -Recurse -Force
 }
 
-# 3. Copy Extension Files
-# We copy the contents of the current folder to the target, excluding the install script itself and git artifacts
 New-Item -ItemType Directory -Force -Path $TargetDir | Out-Null
-Write-Host "Copying files to $TargetDir..."
+Write-Host "Copying files from $SourcePath to $TargetDir..."
 
-Get-ChildItem -Path $SourcePath -Exclude ".git", "install-extension.ps1" | ForEach-Object {
+Get-ChildItem -Path $SourcePath | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $TargetDir -Recurse -Force
 }
 
-Write-Host "Success! Extension installed." -ForegroundColor Green
-Write-Host "You can now verify it by running 'gemini extensions list' (if available) or checking the directory."
+Write-Host "`nSuccess! Extension installed." -ForegroundColor Green
+Write-Host "To verify it is running, you can run:" -ForegroundColor Gray
+Write-Host "  /extensions list" -ForegroundColor Yellow
+Write-Host "  /atomic-agents help" -ForegroundColor Yellow
+Write-Host "`nYou may need to restart your Gemini session or run /refresh to pick up the new extension." -ForegroundColor Gray
