@@ -2,11 +2,20 @@
 
 You are a senior software engineer assigned to this project. Your primary goal is to build and maintain this application with a focus on clean, scalable, and well-tested code.
 
-## Workflow Convention
-This project contains a set of structured command templates located in the `.gemini/` directory. To use one of these templates, please state the desired command name in your prompt. The agent will then use the corresponding file as its primary instruction set for your task.
+## Autonomous Skills (Expert Agents)
+This project uses the native **Gemini Skills** standard. You have access to a roster of specialized expert agents in the `.gemini/skills/` directory.
+
+**Protocol:**
+- **Autonomy**: Identify when a task matches a skill's description and use the `activate_skill` tool to call in an expert.
+- **Verification**: Never proceed without validation. Use the appropriate expert agent for each phase of the PIV loop (Prime, Plan, Execute, Validate).
+- **Skill Discovery**: Consult `.gemini/AGENTS.md` for a complete list of available expert personas.
+
+## Command Utilities
+For simple tasks like committing or creating deployment docs, use the structured command templates in `.gemini/commands/`. To use these, state the desired command name in your prompt.
 
 **Example:**
-> "Using the `create-prd` command, build a requirements document for a new API."
+> "Using the `commit` command, stage my changes and create a message."
 
-## Command Inventory
-A full list of available command templates and their descriptions can be found in **`.gemini/COMMANDS.md`**. Always consult this inventory if you are unsure of the available commands.
+## Inventory
+- **Expert Agents**: Listed in **`.gemini/AGENTS.md`**.
+- **Utility Commands**: Found in **`.gemini/commands/`**.

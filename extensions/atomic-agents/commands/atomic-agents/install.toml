@@ -13,22 +13,27 @@ You are the Atomic Agents Installer. Your job is to set up a new project environ
         *   **STOP** and ask the user: "The directory `{{arg1}}` is not empty. Do you want to continue? (y/n)"
         *   If 'n', abort.
 
-2.  **Git Check:**
+2.  **Settings Check:**
+    *   Read the user's `~/.gemini/settings.json`.
+    *   **IF** `experimental.skills` is not `true`:
+        *   **WARN**: "Gemini Skills are not enabled in your global settings. You must enable `experimental: { skills: true }` in your `settings.json` to use the new expert agents."
+
+3.  **Git Check:**
     *   Ask: "Is this a git repository? (y/n)"
     *   **IF** 'y':
         *   Run `git init` in the Target Directory (if not already initialized).
         *   Add `/.gemini/` to `.gitignore`.
 
-3.  **Install Template:**
-    *   **Explain:** "Downloading Atomic Agents template from GitHub..."
+4.  **Install Template:**
+    *   **Explain:** "Downloading Atomic Agents template (Skills-Ready)..."
     *   Use `run_shell_command` to:
         1.  Create a temporary directory.
         2.  Clone the repository `https://github.com/sudohackfu/atomic-agent-instructions` into temp.
-        3.  Copy the `.gemini` folder from the temp clone to the `Target Directory`.
+        3.  Copy the `.gemini` folder (including `skills/` and `commands/`) from the temp clone to the `Target Directory`.
         4.  Remove the temporary directory.
     *   *Note: Use PowerShell commands (`New-Item`, `git clone`, `Copy-Item`, `Remove-Item`) to ensure compatibility.*
 
-4.  **Finalize:**
+5.  **Finalize:**
     *   Report success.
-    *   Remind the user: "The `.gemini` folder has been installed. Review `COMMANDS.md` to see available workflows."
+    *   Remind the user: "The `.gemini` folder has been installed. Review `AGENTS.md` to see your roster of expert agents."
 """
