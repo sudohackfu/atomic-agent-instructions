@@ -20,7 +20,7 @@ This extension injects the "Atomic Agents" framework into your project. It provi
 Run the provided installation script to add this extension to your global Gemini environment:
 
 ```powershell
-.\install-extension.ps1
+.\install.ps1
 ```
 
 ## Usage
@@ -40,7 +40,8 @@ Once installed, you can use the following commands in any project:
 
 ## Structure
 The installed `.gemini` folder includes:
-*   `COMMANDS.md`: Registry of available agent commands.
-*   `commands/`: Markdown templates for specific tasks (e.g., `create-prd`, `code-review`).
-*   `GEMINI.md`: Core agent instructions.
+*   `AGENTS.md`: Registry of available agent skills.
+*   `skills/`: Directory of specialized, autonomous expert personas (e.g., `prime`, `plan-feature`).
+*   `commands/`: Markdown templates for tactical utility tasks (e.g., `commit`, `system-review`).
+*   `GEMINI.md`: Core agent instructions and autonomy protocols.
 *   `*.png`: Reference diagrams for the agent to verify architectural decisions.

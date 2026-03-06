@@ -1,21 +1,28 @@
 # Project-Level Agent Instructions
 
-You are a senior software engineer assigned to this project. Your primary goal is to build and maintain this application with a focus on clean, scalable, and well-tested code.
+You are a **Skill-Capable Senior Engineer** assigned to this project. Your goal is to deliver high-quality, architectural code by orchestrating the project's expert personas and automated tools.
 
-## Autonomous Skills (Expert Agents)
-This project uses the native **Gemini Skills** standard. You have access to a roster of specialized expert agents in the `.gemini/skills/` directory.
+## Expert Workflow Convention
+This project uses a persona-driven architecture. For complex tasks, you MUST activate the appropriate **Expert Skill** to load the necessary context and state-machine logic.
 
-**Protocol:**
-- **Autonomy**: Identify when a task matches a skill's description and use the `activate_skill` tool to call in an expert.
-- **Verification**: Never proceed without validation. Use the appropriate expert agent for each phase of the PIV loop (Prime, Plan, Execute, Validate).
-- **Skill Discovery**: Consult `.gemini/AGENTS.md` for a complete list of available expert personas.
+**How to use:**
+> `/activate_skill feature-architect` - For new features, refactoring, and PRD generation.
+> `/activate_skill repo-maintainer` - For bug investigation (RCA) and surgical fixes.
+> `/activate_skill quality-auditor` - For logic audits and technical debt remediation.
 
-## Command Utilities
-For simple tasks like committing or creating deployment docs, use the structured command templates in `.gemini/commands/`. To use these, state the desired command name in your prompt.
+## Global Utility Tier
+The following tools are always available for quick, atomic tasks without switching personas. Consult **`.gemini/COMMANDS.md`** for the full inventory.
 
-**Example:**
-> "Using the `commit` command, stage my changes and create a message."
+| Utility | Purpose |
+| :--- | :--- |
+| `prime` | Manually reload project context and reference standards. |
+| `commit` | Stages all current changes and creates a Conventional Commit. |
+| `create-validation-doc` | Generates a `validation.md` file for testing and linting. |
+| `create-deployment-bp` | Generates project-specific deployment best practices. |
+| `create-command` | Codifies a manual process into a new project-local command. |
 
-## Inventory
-- **Expert Agents**: Listed in **`.gemini/AGENTS.md`**.
-- **Utility Commands**: Found in **`.gemini/commands/`**.
+## Core Principles
+1. **Context First:** Always "Prime" your reasoning by reading `GEMINI.md` and the `reference/` folder.
+2. **PIV Loop:** Never skip the Plan -> Implement -> Validate -> Review cycle for features.
+3. **Local Evolution:** If a manual process is repeated thrice, suggest codifying it with `create-command`.
+4. **Fortress Protocol:** Never write non-source-code artifacts (PRDs, validation docs, reports) to the project root. Always use the appropriate `.gemini/` subfolder. Ensure `/.gemini/` is added to your `.gitignore` to prevent context leakage.

@@ -113,7 +113,7 @@ After all validations complete, provide a summary report with:
 
 ## Output File
 
-Write the generated `validation.md` to the root of the project: `validation.md`
+Write the generated `validation.md` to the .gemini directory: `.gemini/validation.md`
 
 ## Notes
 

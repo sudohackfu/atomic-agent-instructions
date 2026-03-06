@@ -12,18 +12,32 @@ You are a help utility. Output the following documentation block verbatim. Do no
     Agentic Engineering environment. It sets up the critical `.gemini` context folder,
     best-practice templates, and workflow guides.
 
+## SYSTEM REQUIREMENTS
+    * Git (Required for the 'install' command)
+    * PowerShell 5.1+ (Windows win32)
+    * Gemini CLI 1.15.0+ (with experimental: { skills: true } enabled)
+
 ## COMMANDS
 
-    atomic-agents:install "<TARGET_PATH>"
+    /atomic-agents:install "<TARGET_PATH>"
         Downloads and installs the Atomic Agents template into the specified directory.
+        * Performs a prerequisite check for Git.
         * Checks if the directory exists and is empty.
         * Initializes git (optional).
         * Configures .gitignore.
 
-    atomic-agents:help
+    /atomic-agents:help
         Displays this manual.
+
+## EXTENSION SKILLS
+
+    agent-creator
+        Helps you scaffold new specialized agent personas (skills) in your project.
+        Usage: Activate the skill and describe the persona of the agent you want to create.
 
 ## BEST PRACTICES
     * Always inspect the `.gemini/` folder after installation to understand the available agent skills.
     * Do not commit the `.gemini/` folder to public repositories unless your team explicitly shares agent context.
+    * Use the PIV loop (Prime, Plan, Execute, Validate) for all development tasks.
+    * Leverage autonomous skills (e.g., 'plan-feature') for complex reasoning tasks.
 """

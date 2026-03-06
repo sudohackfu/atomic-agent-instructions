@@ -13,7 +13,7 @@ Generate a generic `deployment-best-practices.md` file for the current project c
 
 ### 1. Analyze Project Technology Stack
 
-- **Input:** The command can take an optional `project-root-path` argument. If not provided, assume the current working directory is the project root.
+- **Input:** The command can take an optional `project-root-path` argument. If not provided, assume the .gemini/reference directory is the target.
 - **Detect Technologies:** Analyze `package.json` (for Node.js/npm), `pyproject.toml` or `requirements.txt` (for Python), and other build configuration files to identify the primary language and frameworks.
 
 ### 2. Generate Document Structure

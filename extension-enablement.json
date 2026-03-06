@@ -1,7 +1,5 @@
 {
   "atomic-agents": {
-    "overrides": [
-      "~\\*"
-    ]
+    "enabled": true
   }
 }
